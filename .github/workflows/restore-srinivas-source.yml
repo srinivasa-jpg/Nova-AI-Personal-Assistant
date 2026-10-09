@@ -1,0 +1,38 @@
+name: Restore SRINIVAS app source from ZIP
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'SRINIVAS_AI_Personal_Assistant_Ready_For_GitHub.zip'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Extract React source and server function
+        shell: bash
+        run: |
+          set -euo pipefail
+          zip_file="SRINIVAS_AI_Personal_Assistant_Ready_For_GitHub.zip"
+          test -f "$zip_file" || { echo "Upload $zip_file to the repository root first."; exit 1; }
+          unzip -q -o "$zip_file" 'src/*' 'api/*' -d .
+          test -s src/main.tsx
+          test -s src/App.tsx
+          test -s src/styles.css
+          test -s src/data.ts
+          test -s src/types.ts
+          test -s api/chat.js
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src api
+          git rm -f -- "$zip_file"
+          if ! git diff --cached --quiet; then
+            git commit -m "Restore SRINIVAS AI React source and API"
+            git push origin HEAD:main
+          fi
