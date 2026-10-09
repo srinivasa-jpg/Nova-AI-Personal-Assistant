@@ -1,0 +1,39 @@
+SRINIVAS AI PERSONAL ASSISTANT — QUICK START
+
+1. PREVIEW RIGHT NOW
+   Extract this ZIP, then double-click PREVIEW.html in Chrome or Edge.
+   This standalone visual demo needs no npm installation and no API key.
+
+2. UPLOAD THE REAL REACT PROJECT TO GITHUB
+   Open: https://github.com/srinivasa-jpg/Nova-AI-Personal-Assistant
+   Click Add file > Upload files.
+   Select files AND folders from the extracted ZIP, not the ZIP archive itself.
+   IMPORTANT: Put package.json, index.html, src/, and api/ in the repository ROOT.
+   Click Commit changes.
+
+3. HOST YOUR PROJECT ON VERCEL
+   Open https://vercel.com/new and import the repository.
+   Framework: Vite
+   Build command: npm run build
+   Output folder: dist
+   Root directory: ./
+   Click Deploy.
+   Share the main production domain (not a deployment-specific login-protected URL).
+   If visitors are asked to log in, check Vercel Settings > Deployment Protection.
+
+4. RUN THE REAL APP LOCALLY (Node.js 20+)
+   npm install
+   npm run dev
+   Open the localhost URL printed by Vite.
+
+5. AI CHAT
+   Local demo commands work without credentials.
+   Real AI is OPTIONAL, billable and requires a server-side OPENAI_API_KEY.
+   Do not enable a public paid AI endpoint without authentication/rate limits.
+
+6. TROUBLESHOOTING
+   If Vercel reports missing src or package.json, the ZIP was not properly extracted/uploaded.
+   If Vercel reports a TypeScript error, copy the exact build log into ChatGPT.
+
+PROJECT PREVIEW NOTE
+   PREVIEW.html is a standalone interactive design preview; the real app is the React/Vite source.
